@@ -4,27 +4,6 @@ import { Button } from '@material-ui/core'
 import Grid from '@material-ui/core/Grid'
 import MenuItem from '@material-ui/core/MenuItem'
 
-const styles = theme => ({
-    container: {
-        display: 'flex',
-        flexWrap: 'wrap',
-    },
-    textField: {
-        marginLeft: theme.spacing.unit,
-        marginRight: theme.spacing.unit,
-        width: 200,
-    },
-    dense: {
-        marginTop: 19,
-    },
-    menu: {
-        width: 200,
-    },
-    span: {
-        color: 'red'
-    }
-})
-
 const positions = [
     'Attacking Midfield',
     'Central Midfield',
@@ -109,25 +88,22 @@ class FormData extends Component {
                 <TextField
                     label="Name"
                     margin="normal"
-                    className={styles.textField}
                     value={this.state.name}
                     onChange={this.handleChange('name')}
                     fullWidth
                 />
                 {formErrors.name.length > 0 &&
-                    <span className={styles.span}> {formErrors.name} </span>
+                    <span > {formErrors.name} </span>
                 }
             </Grid>
             <Grid item md={2} sm={4} xs={12}>
                 <TextField
                     select
                     label="Position"
-                    className={styles.textField}
                     value={this.state.position}
                     onChange={this.handleChange('position')}
                     SelectProps={{
                         MenuProps: {
-                        className: styles.menu,
                         },
                     }}
                     
@@ -152,7 +128,6 @@ class FormData extends Component {
                     margin="normal"
                     value={this.state.age}
                     onChange={this.handleChange('age')}
-                    className={styles.textField}
                     fullWidth
                 />
                 {formErrors.age.length > 0 &&
@@ -161,8 +136,7 @@ class FormData extends Component {
             </Grid>
             <Grid item md={2} sm={4} xs={12}>
                 <Button 
-                    variant="contained"
-                    className={styles.buttom}
+                    variant="contained"     
                     onClick = {this.handleSubmit}
                     fullWidth
                 >
