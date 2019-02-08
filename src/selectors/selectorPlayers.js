@@ -20,16 +20,15 @@ const filterPlayers = (query, data) => {
     if(data.length > 0){
         if(query.name === '' && query.position === '' && query.age === ''){
             return data
-        }
-        let finalData = data.find(e =>  e.name === query.name && e.position === query.position && age(e.dateOfBirth) === query.age)
-        
-        if(finalData){
-            return [finalData]
         }else{
-            return 'empty'
+            let finalData = data.find(e =>  e.name === query.name && e.position === query.position && age(e.dateOfBirth) === query.age)
+            
+            if(finalData){
+                return [finalData]
+            }else{
+                return 'empty'
+            }
         }
-        
-        
     }
 }
 

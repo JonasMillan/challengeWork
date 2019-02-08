@@ -1,12 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { withStyles } from '@material-ui/core/styles'
+import Table from '@material-ui/core/Table'
+import TableBody from '@material-ui/core/TableBody'
+import TableCell from '@material-ui/core/TableCell'
+import TableHead from '@material-ui/core/TableHead'
+import TableRow from '@material-ui/core/TableRow'
+import Paper from '@material-ui/core/Paper'
 
 const styles = theme => ({
     root: {
@@ -17,14 +17,12 @@ const styles = theme => ({
     table: {
         minWidth: 700,
     },
-});
+})
 
 const TableData = props => {
-    const { classes, data } = props; 
-
+    const { classes, data } = props 
 return (
     <div>
-    {data === 'empty' ? 'not found': 
     <Paper className={classes.root}>
         <Table className={classes.table}>
         <TableHead>
@@ -38,8 +36,7 @@ return (
             </TableRow>
         </TableHead>
         <TableBody>
-            {data.length > 0 &&
-                data.map((row, index) => (
+            {   data.map((row, index) => (
                 <TableRow key={index}>
                     <TableCell component="th" scope="row"> {row.contractUntil}</TableCell>
                     <TableCell align="center">{row.dateOfBirth}</TableCell>
@@ -52,13 +49,12 @@ return (
         </TableBody>
         </Table> 
     </Paper>
-    }
     </div>    
-);
+)
 }
 
 TableData.propTypes = {
     classes: PropTypes.object.isRequired,
-};
+}
 
-export default withStyles(styles)(TableData);
+export default withStyles(styles)(TableData)

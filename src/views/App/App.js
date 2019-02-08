@@ -14,13 +14,14 @@ class App extends Component {
   async componentWillMount(){
     await this.props.FootballActions.fetchFootball()
   }
+  
   render() {
     return (
       <div className="App">
         <h1>Football Player Finder</h1>
         <FormData search={this.props.InputActions} />
         { this.props.data.length > 0 &&
-          <TableData data={this.props.select}/>
+          (this.props.select === 'empty' ? 'not found' : <TableData data={this.props.select}/>)
         }
       </div>
     );
