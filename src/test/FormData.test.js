@@ -3,10 +3,21 @@ import { shallow } from 'enzyme'
 import FormData from '../views/FormData/FormData'
 import './setupTest.js'
 
+const setUp = (props = {}) => {
+    const component = shallow(<FormData  {...props}/>)
+    return component
+}
+
 describe('form component', () => {
 
-    it('It should render without errors', () => {
-        const component = shallow(<FormData />)
-        console.log(component.debug())
+    let component
+    beforeEach( () => {
+        component = setUp()
     })
+
+    it('It should  render tree inputs without errors', () => {
+        const wrapper = component.find('TextField')
+        expect(wrapper.length).toBe(3)
+    })
+    
 })
